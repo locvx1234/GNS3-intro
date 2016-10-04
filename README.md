@@ -19,6 +19,10 @@ Download IOS images:
 
 https://drive.google.com/file/d/0ByQrVPPzqnowNWpHT2otbXMzZzA/view?usp=sharing
 
+or
+
+https://mega.nz/#F!nJR3BTjJ!N5wZsncqDkdKyFQLELU1wQ
+
 ### 3. Creating a simple topology 
 #####  Introduction
 - Devices Toolbar
@@ -56,7 +60,7 @@ https://www.dropbox.com/s/ob1achpz4rgt8ai/BasicRouterConfiguration.pdf?dl=0
 
 
 
-*Reference: [gns3.com](https://www.gns3.com/support/docs) *
+*Reference: [gns3.com](https://www.gns3.com/support/docs)*
 
 
 
