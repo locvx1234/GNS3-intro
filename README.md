@@ -1,7 +1,7 @@
 # GNS3-intro
 
 ### 1. Install 
-##### Linux, Windows ,Mac OS
+##### Linux, Windows, Mac OS
 
 https://www.gns3.com/software/download
 
@@ -55,14 +55,86 @@ https://mega.nz/#F!nJR3BTjJ!N5wZsncqDkdKyFQLELU1wQ
 
 2. Enable RIP.
 
+Router 1 Example:
+
+	R1>en
+	R1#conf t
+	R1(config)#int f0/0
+	R1(config-if)#ip add 192.168.1.1 255.255.255.0
+	R1(config-if)#no sh
+	R1(config-if)#int f0/1
+	R1(config-if)#ip add 192.168.3.1 255.255.255.0
+	R1(config-if)#no shut
+	R1(config-if)#exit
+	R1(config)#router rip
+	R1(config-router)no auto-summary
+	R1(config-router)version 2
+	R1(config-router)network 192.168.1.0
+	R1(config-router)network 192.168.3.0
+	R1(config-router)exit
+	R1(config)#exit
+
+
+Router 2 Example:
+
+	R2>en
+	R2#conf t
+	R2(config)#int f0/0
+	R2(config-if)#ip add 192.168.1.2 255.255.255.0
+	R2(config-if)#no sh
+	R2(config-if)#int f1/0
+	R2(config-if)#ip add 192.168.2.2 255.255.255.0
+	R2(config-if)#no sh
+	R2(config-if)#exit
+	R2(config)#router rip
+	R2(config-router)no auto-summary
+	R2(config-router)version 2
+	R2(config-router)#net 192.168.1.0
+	R2(config-router)#net 192.168.2.0
+	R2(config-router)#exit
+	R2(config t)exit
+
+
+
+Router 3 Example:
+
+	R3>en
+	R3#conf t
+	R3(config)#int f0/1
+	R3(config-if)#ip add 192.168.3.2 255.255.255.0
+	R3(config-if)#no sh
+	R3(config-if)#int f1/0
+	R3(config-if)#ip add 192.168.2.1 255.255.255.0
+	R3(config-if)#no sh
+	R3(config-if)#exit
+	R3(config)#router rip
+	R2(config-router)no auto-summary
+	R2(config-router)version 2
+	R3(config-router)#net 192.168.2.0
+	R3(config-router)#net 192.168.3.0
+	R3(config-router)#exit
+	R3(config t)exit
+
+
+
 Basic Router Configuration Commands:
 https://www.dropbox.com/s/ob1achpz4rgt8ai/BasicRouterConfiguration.pdf?dl=0
 
 
 
-*Reference: [gns3.com](https://www.gns3.com/support/docs)*
+*Reference:* 
+
+https://www.gns3.com/support/docs
+
+https://www.gns3.com/software/faq
 
 
+What is the difference between GNS3 and Packet Tracer / VIRL?
+Packet Tracer and VIRL are Cisco's offerings and answers to the advancement of GNS3's advanced EMULATION. 
+There are strengths and weaknesses to each product, but GNS3 is first in Emulating real production networks. For more information attached are some recent articles written on the comparison:
 
+- Cisco VIRL vs. GNS3 - How They Compare - GlobalConfig.net
+
+- (Un)Biased review of someone who used VIRL
 
 
