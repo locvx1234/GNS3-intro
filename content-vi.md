@@ -12,14 +12,74 @@ Nhà phát triển :  	Jeremy Grossman
 
 Được viết bằng Python 
 
-Website :  	(www.gns3.com](https://www.gns3.com)
+Website :  	[www.gns3.com](https://www.gns3.com)
 
 Github : https://github.com/GNS3/gns3-server
 
 Đạt 11 triệu lượt download năm 2015 
 
-GNS3 sử dụng bộ mô phỏng Dynamips để giả lập Cisco IOS.
+
+### 1. Cài đặt
+
+##### Linux, Windows, Mac OS
+
+https://www.gns3.com/software/download
+
+##### Ubuntu and all distributions based on it 
+
+	sudo add-apt-repository ppa:gns3/ppa
+	sudo apt-get update
+	sudo apt-get install gns3-gui
+	
+##### Windows: 
+
+Sử dụng bản cài đặt cho Windows : GNS3-1.5.2-all-in-one.exe
+
+GNS3 hỗ trợ cho cả Linux, Windows, Mac. Khuyến cáo sử dụng Linux vì tăng hiệu năng và tính ổn định của nó.
+
+### 2. Giới thiệu các thành phần của giao diện 
+
+Gồm các khu vực chính :
+- Thanh chức năng
+- Thanh thiết bị 
+- Topology : Liệt kê các thiết bị đang sử dụng và các kết nối của nó
+- Server : Có 3 loại Local server, GNS3 VM server và Remote server 
+- Vùng làm việc chính (Workspace)
+- Console
+
+
+### 3. GNS3 VM
+GNS3 VM là một máy ảo chạy trên nền Ubuntu được cài sẵn tất cả những thành phần đi kèm để thực hiện các bài lab với GNS3.
+
+Lý do sử dụng GNS3 VM thay vì sử dụng trên Local
+- Với người dùng Linux, một vài thành phần đi kèm khó để cài đặt, như là các yêu cầu cho IOU (cần xác định các thư viện và hỗ trợ 32-bits)
+- Sử dụng VMware thì có thể sử dụng công nghệ KVM để tăng tốc để chạy trên Qemu với hiệu năng tốt trên Windows và Mac.
+- Dynamips và Qemu xu hướng làm việc tốt hơn rất nhiều trên Linux.
+- Hỗ trợ đầy đủ IOU.
+- Phiên bản sau của VM sẽ bao gồm đầy đủ cho hỗ trợ Docker.
+...
+
+##### Cài đặt 
+
+Có nhiều bản phân phối, nhưng khuyến cáo là dùng VMware Workstation
+
+- VMware Workstation to be used with Workstation Pro/Player and Fusion (Recommended)
+- VMware ESXi (For experts only)
+- VirtualBox (No nested virtualization support)
+
+Download : 
+
+https://github.com/GNS3/gns3-gui/releases 
+
+
+
+### 4. Thêm IOS images 
+
+##### Giới thiệu về Dynamips
+
 Để thiết bị router có thể hoạt động bạn phải cài đặt hệ điều hành của nó tên gọi IOS (Internetwork Operating System) trên GNS3.
+
+Dynamips là một trình mô phỏng Router Cisco sử dụng các IOS images chuẩn. 
 
 Tải IOS tại : 
 
@@ -27,63 +87,59 @@ https://www.mediafire.com/folder/6l2vplfn9kjvz/GNS3
 
 Mọi câu lệnh bạn sử dụng để cấu hình cho Router trong GNS3 đều được sử dụng như Router thật và dùng IOS thật nhưng Switch trong GNS3 là switch trong suốt bạn không thể thực thiện cấu hình Switch.
 
-
-### 1. Cài đặt
-Trên Windows: 
-
-Sử dụng bản cài đặt cho Windows : GNS3-1.5.2-all-in-one.exe
-
-GNS3 hỗ trợ cho cả Linux, Windows, Mac. Khuyến cáo sử dụng Linux vì tăng hiệu năng và tính ổn định của nó.
-
-### 2. Thêm IOS images 
-
-##### Giới thiệu về Dynamips
-Dynamips là một trình mô phỏng Router Cisco sử dụng các IOS images chuẩn. 
-
 Các dòng IOS images được khuyến cáo sử dụng là :  c3640, c3660, c3725, c3745, c7200 
 Phần mềm mô phỏng loại này có thể được sử dụng cho :
 - Như một công cụ để thực tập, với phần mềm sử dụng trong thế giới thực. Nó cho phép mọi người làm quen với các thiết bị của Cisco.
 - Thử nghiệm và làm quen với các đặc tính của Cisco IOS 
 - Kiểm tra nhanh chóng cấu hình để triển khai trên các router thật.
 
-###### Demo add IOS image
+#####Thực hiện add IOS image 
 
-###### Giả lập Switch trong GNS3 bằng IOU image
+### 5. Mô phỏng Switch trong GNS3
 
 GNS3 hỗ trợ giả lập Router Cisco từ IOS images nhưng lại không hỗ trợ cho switch.
 
-- Với những lab không liên quan nhiều đến switch, có thể sử dụng :
+- Với những bài Lab cấu hình không liên quan nhiều tới Switch thì có thể sử dụng :
++ Switch layer 2 : Ethernet switching devices 
 
-. Switch layer 2: Switch > Ethernet switch
+Ethernet switch hỗ trợ công nghệ VLAN với chuẩn 802.1q trunking. Bạn có thể thiết lập đường trunk bằng cách chọn "dot1q" trong configuration Ethernet switch. 
 
-. Switch layer 3: Add module NM-16ESW vào router, khi đó có thể cấu hình như switch layer 3
+Mặc định Ethernet switch có 8 ports trong VLAN 1 và ở chế độ access. Tuy nhiên trên lý thuyết bạn có thể có tới 10,000 ports và 10,000 VLANs.
 
-- GNS3 không hỗ trợ mô phỏng Switch từ IOS images nhưng cho phép giả lập từ Linux/UNIX IOU images.
++ Switch layer 3 : thêm module NM-16ESW vào router, lúc đó có thể cấu hình như Switch layer 3
 
-. Step 0: Prepare Tools Required 
+Để xem các interface : # show ip int brief
 
-. Step 1: GNS3 IOU VM.ova setup 
+Nếu bạn muốn tắt chức năng routing : (config)# no ip routing (switch layer 2)
 
-. Step 2: Upload IOU Image to UNIX (GNS3 IOU VM)
+Để xem VLAN : #show vlan-switch
 
-. Step 3: GNS3 Server  Configuaration 
+- Sử dụng IOU images giả lập Switch
 
-. Step 4: Connect  Cisco IOU tp GNS3
-END
++ Tạo IOU licence
 
-##### Hub
++ Tạo switch L2, L3
+
+- Hub
 
 Hub là thiết bị cấu hình đơn giản nhất bởi vì bạn chỉ cần chọn số port cho mỗi thiết bị. Mặc định là 8 port.
 
+### 6. QEMU (Quick Emulator)
+- Tạo host ASAv
 
-### 3. Tạo 1 topo đơn giản 
-##### Giới thiệu các thành phần của giao diện 
-Gồm các khu vực chính :
-- Thanh thiết bị 
-- Topology : Liệt kê các thiết bị đang sử dụng và các kết nối của nó
-- Server : Có 3 loại Local server, GNS3 VM server và Remote server 
-- Vùng làm việc chính (Workspace)
-- Console 
+- Tạo host Alpine 
+
+### 7. VMware 
+- Tạo host XP / CenOS
+
+### 8. Docker
+- Tạo host Alpine 
+
+Image name : alpine:3.2 
+Start command : sh 
+Environment : HELLO=WORLD
+
+### 9. Tạo 1 topo đơn giản
 
 ##### Idle-PC
 Sử dụng mô phỏng Router có thể làm CPU của hệ thống hoạt động tới 100%. Lý do là Dynamips không biết khi nào router ảo đang rỗi, khi nào đang hoạt động.
@@ -108,28 +164,6 @@ Tuy nhiên nó lại không phụ thuộc máy, hệ điều hành hay phiên b�
 - 3 đường mạng sẽ là 192.168.1.0/24, 192.168.2.0/24 and 192.168.3.0/24
 - Sử dụng định tuyến RIP
 
-
-### 4. GNS3 VM
-GNS3 VM là một máy ảo chạy trên nền Ubuntu được cài sẵn tất cả những thành phần đi kèm để thực hiện các bài lab với GNS3.
-
-Lý do sử dụng GNS3 VM thay vì sử dụng trên Local
-- Với người dùng Linux, một vài thành phần đi kèm khó để cài đặt, như là các yêu cầu cho IOU (cần xác định các thư viện và hỗ trợ 32-bits)
-- Sử dụng VMware thì có thể sử dụng công nghệ KVM để tăng tốc để chạy trên Qemu với hiệu năng tốt trên Windows và Mac.
-- Dynamips và Qemu xu hướng làm việc tốt hơn rất nhiều trên Linux.
-- Hỗ trợ đầy đủ IOU.
-- Phiên bản sau của VM sẽ bao gồm đầy đủ cho hỗ trợ Docker.
-...
-
-##### Cài đặt 
-Có nhiều bản phân phối, nhưng khuyến cáo là dùng VMware Workstation
-
-- VMware Workstation to be used with Workstation Pro/Player and Fusion (Recommended)
-- VMware ESXi (For experts only)
-- VirtualBox (No nested virtualization support)
-
-Download : 
-
-https://github.com/GNS3/gns3-gui/releases 
 
 
 

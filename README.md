@@ -1,5 +1,20 @@
 # GNS3-intro
 
+
+### 0. General introduction
+
+
+<img src="https://secure.gravatar.com/avatar/4176b714c203e7967af31c857e95ee06.jpg?s=512&r=g&d=mm">
+
+
+- First released 	in 2008
+- Developer(s) 		Jeremy Grossman
+- Written in 		Python
+- License 			GNU GPL
+- Website 			[www.gns3.com](https://www.gns3.com/)
+- Repository 		[github.com/GNS3/gns3-server](https://github.com/GNS3/gns3-server)
+
+
 ### 1. Install 
 ##### Linux, Windows, Mac OS
 
@@ -11,7 +26,37 @@ https://www.gns3.com/software/download
 	sudo apt-get update
 	sudo apt-get install gns3-gui
 
-### 2. Add IOS images
+### 2. Display 
+
+- Tools bar
+- Devices bar
+- Topology Summary
+- Servers Summary
+- Workspace
+- Console
+
+### 3. GNS3 VM
+
+What is the GNS3 VM?
+
+Why use the GNS3 VM?
+
+Installation
+
+The VM is distributed in three different flavors:
+
+-    VMware Workstation to be used with Workstation Pro/Player and Fusion (Recommended)
+-    VMware ESXi (For experts only)
+-    VirtualBox (No nested virtualization support)
+	
+Download : 
+
+https://github.com/GNS3/gns3-gui/releases 
+
+### 4. Dynamips
+- Dynamips
+
+- IOS images
 
 **Recommend** using c3640, c3660, c3725, c3745 and c7200 IOS images 
 
@@ -23,17 +68,48 @@ or
 
 https://mega.nz/#F!nJR3BTjJ!N5wZsncqDkdKyFQLELU1wQ
 
+or
+
+https://www.mediafire.com/folder/6l2vplfn9kjvz/GNS3
+
+- Add IOS image
+
+### 5. Switching Simulation in GNS3 
+
+##### Switch layer 2 : Use Ethernet switching devices 
+##### Switch layer 3 : Routers that change into Switches: Add module NM-16ESW to Router 
+
+	# show ip int brief
+	(config)# no ip routing (switch layer 2)
+	#show vlan-switch
+	
+#####  Use IOU images to emulate Switch 
+
++ Cisco IOU License Generator
+
++ Generate Switch Layer 2 and Switch Layer 3
+
+
+##### Hub 
+
+### 6. QEMU (Quick Emulator)
+
+<img src="http://wiki.qemu.org/images/0/0c/Qemu-logo.png">
+
+### 7. VMware 
+
+<img src="http://siliconangle.com/files/2011/01/Picture-93.png">
+
+### 8. Docker
+
+<img src="https://d2mw6vgfxwlz2a.cloudfront.net/2016/Feb/docker_logo-1455828502290.png">
+
+- Use: Alpine
+- Image name : alpine:3.2 
+- Start command : sh 
+- Environment : HELLO=WORLD
+
 ### 3. Creating a simple topology 
-#####  Introduction
-- Devices Toolbar
-
-- The Workspace
-
-- Topology Summary
-
-- Servers Summary 
-
-##### Configuring a router
 
 ##### Idle-PC
 
