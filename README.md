@@ -1,5 +1,5 @@
 # GNS3-intro
-
+Graphical Network Simulator-3
 
 ### 0. General introduction
 
@@ -109,7 +109,7 @@ https://www.mediafire.com/folder/6l2vplfn9kjvz/GNS3
 - Start command : sh 
 - Environment : HELLO=WORLD
 
-### 3. Creating a simple topology 
+### 9. Creating a simple topology 
 
 ##### Idle-PC
 

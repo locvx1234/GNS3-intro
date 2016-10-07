@@ -2,9 +2,9 @@
 
 GNS3 (Graphical Network Simulator-3) là một trình giả lập mạng, cho phép bạn thiết kế các mô hình mạng và chạy giả lập trên chúng với bản phân phối đầu tiên năm 2008.
 
-GNS3 sử dụng phần cứng của máy tính để giả lập thiết bị, khác với Packet Tracer, GNS3 có thể phối hợp với các phần mềm máy ảo khác như VMware Workstation, VMware Player, Virtualbox... để thiết lập một hệ thống mạng hoàn chỉnh như trong thực tế.
+GNS3 sử dụng phần cứng của máy tính (RAM, CPU...) để giả lập thiết bị, khác với Packet Tracer, GNS3 có thể phối hợp với các phần mềm máy ảo khác như VMware Workstation, VMware Player, Virtualbox... để thiết lập một hệ thống mạng hoàn chỉnh như trong thực tế.
 
-GNS3 có các phiên bản chạy trên Windows, Linux và OSX. GNS3 sử dụng phần cứng trên máy tính (RAM, CPU...) để giả lập thiết bị. 
+GNS3 có các phiên bản chạy trên Windows, Linux và OSX. 
 
 GNS3 được sử dụng bởi rất nhiều công ty lớn như Exxon, Walmart, AT&T và NASA, nó cũng phổ biến trong các bài test lấy chứng chỉ mạng chuyên nghiệp.
 
@@ -125,7 +125,14 @@ Nếu bạn muốn tắt chức năng routing : (config)# no ip routing (switch 
 Hub là thiết bị cấu hình đơn giản nhất bởi vì bạn chỉ cần chọn số port cho mỗi thiết bị. Mặc định là 8 port.
 
 ### 6. QEMU (Quick Emulator)
+
+QEMU là một trong những máy ảo tương tự như VMWare, Virtual PC, Bochs. Qemu có thể chạy tốt trên Linux và Windows. 
+
+Qemu cũng như Bochs là một phần mềm mã nguồn mở. Qemu hỗ trợ nhiều loại máy ảo (ARM, PowerPC, x86, Sparc, MIPS).
+
 - Tạo host ASAv
+
+ASA nó là thiết bị bảo mật có nhiều chức năng, ví dụ: chức năng Firewal, IPS, VPN, ngoài ra nó còn có một số tính năng của router.
 
 - Tạo host Alpine 
 
@@ -133,11 +140,17 @@ Hub là thiết bị cấu hình đơn giản nhất bởi vì bạn chỉ cần
 - Tạo host XP / CenOS
 
 ### 8. Docker
+
+Docker - đây là một công cụ tạo môi trường được "đóng gói" (còn gọi là Container) trên máy tính mà không làm tác động tới môi trường hiện tại của máy, môi trường trong Docker sẽ chạy độc lập.
+
+Một số developer thường tạo sẵn các môi trường này, và upload lên mạng để mọi người lấy về dùng, và mấy cái này gọi là các Images.
+
+
 - Tạo host Alpine 
 
-Image name : alpine:3.2 
-Start command : sh 
-Environment : HELLO=WORLD
+	Image name : alpine:3.2 
+	Start command : sh 
+	Environment : HELLO=WORLD
 
 ### 9. Tạo 1 topo đơn giản
 
