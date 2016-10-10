@@ -130,14 +130,14 @@ QEMU là một trong những máy ảo tương tự như VMWare, Virtual PC, Boc
 
 Qemu cũng như Bochs là một phần mềm mã nguồn mở. Qemu hỗ trợ nhiều loại máy ảo (ARM, PowerPC, x86, Sparc, MIPS).
 
-- Tạo host ASAv
+##### Tạo host ASAv
 
 ASA nó là thiết bị bảo mật có nhiều chức năng, ví dụ: chức năng Firewal, IPS, VPN, ngoài ra nó còn có một số tính năng của router.
 
-- Tạo host Alpine 
+##### Tạo ASA, Alpine 
 
 ### 7. VMware 
-- Tạo host XP / CenOS
+##### Tạo host XP / CenOS
 
 ### 8. Docker
 
@@ -146,7 +146,7 @@ Docker - đây là một công cụ tạo môi trường được "đóng gói" 
 Một số developer thường tạo sẵn các môi trường này, và upload lên mạng để mọi người lấy về dùng, và mấy cái này gọi là các Images.
 
 
-- Tạo host Alpine 
+##### Tạo host Alpine 
 
 	Image name : alpine:3.2 
 	Start command : sh 

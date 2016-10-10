@@ -131,6 +131,10 @@ https://www.mediafire.com/folder/6l2vplfn9kjvz/GNS3
 
 2. Enable RIP.
 
+3. Ping
+
+4. Capture 
+
 Router 1 Example:
 
 	R1>en
