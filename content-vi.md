@@ -126,9 +126,9 @@ Hub là thiết bị cấu hình đơn giản nhất bởi vì bạn chỉ cần
 
 ### 6. QEMU (Quick Emulator)
 
-QEMU là một trong những máy ảo tương tự như VMWare, Virtual PC, Bochs. Qemu có thể chạy tốt trên Linux và Windows. 
+QEMU là một trình ảo hóa để chạy các máy ảo Linux tương tự như VMWare, Virtual PC, Bochs. Qemu có thể chạy tốt trên Linux và Windows. 
 
-Qemu cũng như Bochs là một phần mềm mã nguồn mở. Qemu hỗ trợ nhiều loại máy ảo (ARM, PowerPC, x86, Sparc, MIPS).
+Qemu thuần bằng dòng lệnh, nhỏ nhẹ. Qemu hỗ trợ nhiều loại máy ảo (ARM, PowerPC, x86, Sparc, MIPS).
 
 ##### Tạo host ASAv
 
