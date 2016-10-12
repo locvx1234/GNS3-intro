@@ -130,7 +130,7 @@ Nếu bạn muốn tắt chức năng routing : (config)# no ip routing (switch 
 #### Sử dụng IOU images giả lập Switch
 
 ##### Tạo IOU licence
-Chạy file [CiscoKeyGen.py]() trên server đang dùng và lưu 2 dòng kết quả vào 1 file text mà import vào gns3 
+Chạy file [CiscoKeyGen.py](https://github.com/locvx1234/GNS3-intro/blob/master/CiscoKeyGen.py) trên server đang dùng và lưu 2 dòng kết quả vào 1 file text mà import vào gns3 
 
 Ví dụ một file `IOURC.txt` với nội dung như sau :
 
@@ -139,7 +139,13 @@ Ví dụ một file `IOURC.txt` với nội dung như sau :
 
 <img src="http://i.imgur.com/lK7D6eY.png">
 
-+ Tạo switch L2, L3
+##### Tạo switch L2, L3
+
+<img src="http://i.imgur.com/uBuqRhf.png">
+
+Link Switch L2, L3
+
+https://drive.google.com/file/d/0ByQrVPPzqnowRl9meGJYbEtfQ2s/view?usp=sharing
 
 - Hub
 
@@ -157,6 +163,10 @@ ASA nó là thiết bị bảo mật có nhiều chức năng, ví dụ: chức 
 
 ##### Tạo ASA, Alpine 
 
+Link ASA
+
+https://drive.google.com/file/d/0ByQrVPPzqnowQ3p2ZWxtMEZ1aFk/view?usp=sharing
+
 ### 7. VMware 
 ##### Tạo host XP / CenOS
 
@@ -168,6 +178,8 @@ Một số developer thường tạo sẵn các môi trường này, và upload 
 
 
 ##### Tạo host Alpine 
+
+
 
 	Image name : alpine:3.2 
 	Start command : sh 
