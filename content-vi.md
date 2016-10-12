@@ -83,11 +83,20 @@ Dynamips là một trình mô phỏng Router Cisco sử dụng các IOS images c
 
 Tải IOS tại : 
 
+https://drive.google.com/file/d/0ByQrVPPzqnowNWpHT2otbXMzZzA/view?usp=sharing
+
+or
+
+https://mega.nz/#F!nJR3BTjJ!N5wZsncqDkdKyFQLELU1wQ
+
+or
+
 https://www.mediafire.com/folder/6l2vplfn9kjvz/GNS3
 
 Mọi câu lệnh bạn sử dụng để cấu hình cho Router trong GNS3 đều được sử dụng như Router thật và dùng IOS thật nhưng Switch trong GNS3 là switch trong suốt bạn không thể thực thiện cấu hình Switch.
 
 Các dòng IOS images được khuyến cáo sử dụng là :  c3640, c3660, c3725, c3745, c7200 
+
 Phần mềm mô phỏng loại này có thể được sử dụng cho :
 - Như một công cụ để thực tập, với phần mềm sử dụng trong thế giới thực. Nó cho phép mọi người làm quen với các thiết bị của Cisco.
 - Thử nghiệm và làm quen với các đặc tính của Cisco IOS 
@@ -95,11 +104,15 @@ Phần mềm mô phỏng loại này có thể được sử dụng cho :
 
 #####Thực hiện add IOS image 
 
+<img src="http://i.imgur.com/vwtWRJE.png">
+
+Sau đó import IOS images đã tải ở hộp thoại kế tiếp .
+
 ### 5. Mô phỏng Switch trong GNS3
 
 GNS3 hỗ trợ giả lập Router Cisco từ IOS images nhưng lại không hỗ trợ cho switch.
 
-- Với những bài Lab cấu hình không liên quan nhiều tới Switch thì có thể sử dụng :
+#### Với những bài Lab cấu hình không liên quan nhiều tới Switch thì có thể sử dụng :
 + Switch layer 2 : Ethernet switching devices 
 
 Ethernet switch hỗ trợ công nghệ VLAN với chuẩn 802.1q trunking. Bạn có thể thiết lập đường trunk bằng cách chọn "dot1q" trong configuration Ethernet switch. 
@@ -114,9 +127,17 @@ Nếu bạn muốn tắt chức năng routing : (config)# no ip routing (switch 
 
 Để xem VLAN : #show vlan-switch
 
-- Sử dụng IOU images giả lập Switch
+#### Sử dụng IOU images giả lập Switch
 
-+ Tạo IOU licence
+##### Tạo IOU licence
+Chạy file [CiscoKeyGen.py]() trên server đang dùng và lưu 2 dòng kết quả vào 1 file text mà import vào gns3 
+
+Ví dụ một file `IOURC.txt` với nội dung như sau :
+
+	[license]
+	gns3vm = 73635fd3b0a13ad0;
+
+<img src="http://i.imgur.com/lK7D6eY.png">
 
 + Tạo switch L2, L3
 
