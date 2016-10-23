@@ -343,7 +343,7 @@ Chuột phải vào `Router` (running) chọn `IDLE PC` và chọn port cần b�
 
 
 
-**Hòm thư góp ý : locvx1234@gmail.com **
+* Bài viết còn nhiều thiếu sót, mong bạn đọc góp ý thêm *
 
 
 

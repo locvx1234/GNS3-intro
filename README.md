@@ -1,6 +1,8 @@
 # GNS3-intro
 Graphical Network Simulator-3
 
+* Hướng dẫn chi tiết tại https://github.com/locvx1234/GNS3-intro/blob/master/content-vi.md *
+
 ### 0. General introduction
 
 
