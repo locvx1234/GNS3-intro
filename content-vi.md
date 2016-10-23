@@ -1,3 +1,18 @@
+<a name="top"></a>
+### Mục lục 
+
+- [0. Giới thiệu chung](#gioi_thieu)
+- [1. Cài đặt](#cai_dat)
+- [2. Các thành phần của giao diện ](#thanh_phan)
+- [3. GNS3 VM](#gns3_vm)
+- [4. Thêm IOS images](#IOS_images)
+- [5. Mô phỏng Switch trong GNS3](#switch)
+- [6. QEMU](#qemu)
+- [7. VMware](#VMware)
+- [8. Docker](#docker)
+- [9. Tạo 1 topo đơn giản](#topo)
+
+<a name="gioi_thieu"></a>
 ### 0. Giới thiệu chung
 
 GNS3 (Graphical Network Simulator-3) là một trình giả lập mạng, cho phép bạn thiết kế các mô hình mạng và chạy giả lập trên chúng với bản phân phối đầu tiên năm 2008.
@@ -18,7 +33,7 @@ Github : https://github.com/GNS3/gns3-server
 
 Đạt 11 triệu lượt download năm 2015 
 
-
+<a name="cai_dat"></a>
 ### 1. Cài đặt
 
 ##### Linux, Windows, Mac OS
@@ -37,7 +52,10 @@ Sử dụng bản cài đặt cho Windows : GNS3-1.5.2-all-in-one.exe
 
 GNS3 hỗ trợ cho cả Linux, Windows, Mac. Khuyến cáo sử dụng Linux vì tăng hiệu năng và tính ổn định của nó.
 
-### 2. Giới thiệu các thành phần của giao diện 
+<a name="thanh_phan"></a>
+### 2. Các thành phần của giao diện 
+
+<img src="http://i.imgur.com/AVnsGz4.png">
 
 Gồm các khu vực chính :
 - Thanh chức năng
@@ -47,7 +65,7 @@ Gồm các khu vực chính :
 - Vùng làm việc chính (Workspace)
 - Console
 
-
+<a name="gns3_vm"></a>
 ### 3. GNS3 VM
 GNS3 VM là một máy ảo chạy trên nền Ubuntu được cài sẵn tất cả những thành phần đi kèm để thực hiện các bài lab với GNS3.
 
@@ -71,8 +89,19 @@ Download :
 
 https://github.com/GNS3/gns3-gui/releases 
 
+Mình dùng bản `GNS3.VM.VMware.Workstation.1.5.2.zip`
 
+Sau khi tải GNS3 VM về, unzip ta được file `GNS3 VM.ova`
 
+Chuột phải và `Open with VMWare Workstation`
+
+<img src="http://i.imgur.com/B0Yls3A.png">
+
+Quá trình cài đặt hoàn tất, ta được một máy ảo GNS3 VM như hình :
+
+<img src="http://i.imgur.com/LInGczj.png"> 
+
+<a name="IOS_images"></a>
 ### 4. Thêm IOS images 
 
 ##### Giới thiệu về Dynamips
@@ -108,6 +137,7 @@ Phần mềm mô phỏng loại này có thể được sử dụng cho :
 
 Sau đó import IOS images đã tải ở hộp thoại kế tiếp .
 
+<a name="switch"></a>
 ### 5. Mô phỏng Switch trong GNS3
 
 GNS3 hỗ trợ giả lập Router Cisco từ IOS images nhưng lại không hỗ trợ cho switch.
@@ -115,11 +145,15 @@ GNS3 hỗ trợ giả lập Router Cisco từ IOS images nhưng lại không h�
 #### Với những bài Lab cấu hình không liên quan nhiều tới Switch thì có thể sử dụng :
 + Switch layer 2 : Ethernet switching devices 
 
+<img src="http://i.imgur.com/Av9aAft.png">
+
 Ethernet switch hỗ trợ công nghệ VLAN với chuẩn 802.1q trunking. Bạn có thể thiết lập đường trunk bằng cách chọn "dot1q" trong configuration Ethernet switch. 
 
 Mặc định Ethernet switch có 8 ports trong VLAN 1 và ở chế độ access. Tuy nhiên trên lý thuyết bạn có thể có tới 10,000 ports và 10,000 VLANs.
 
 + Switch layer 3 : thêm module NM-16ESW vào router, lúc đó có thể cấu hình như Switch layer 3
+
+<img src="http://i.imgur.com/m32k1o7.png">
 
 Để xem các interface : # show ip int brief
 
@@ -141,16 +175,27 @@ Ví dụ một file `IOURC.txt` với nội dung như sau :
 
 ##### Tạo switch L2, L3
 
+Sử dụng IOU images cho L2 và L3 để tạo các switch tương ứng. Cách thực hiện tương tự như tạo router bằng IOS images.
+
 <img src="http://i.imgur.com/uBuqRhf.png">
 
 Link Switch L2, L3
 
 https://drive.google.com/file/d/0ByQrVPPzqnowRl9meGJYbEtfQ2s/view?usp=sharing
 
+Switch sau khi đã tạo xong 
+
+<img src="http://i.imgur.com/a3BW5XA.png">
+
+<img src="http://i.imgur.com/A7vpkHS.png">
+
 - Hub
+
+<img src="http://i.imgur.com/miMDKA8.png">
 
 Hub là thiết bị cấu hình đơn giản nhất bởi vì bạn chỉ cần chọn số port cho mỗi thiết bị. Mặc định là 8 port.
 
+<a name="qemu"></a>
 ### 6. QEMU (Quick Emulator)
 
 QEMU là một trình ảo hóa để chạy các máy ảo Linux tương tự như VMWare, Virtual PC, Bochs. Qemu có thể chạy tốt trên Linux và Windows. 
@@ -161,15 +206,29 @@ Qemu thuần bằng dòng lệnh, nhỏ nhẹ. Qemu hỗ trợ nhiều loại m�
 
 ASA nó là thiết bị bảo mật có nhiều chức năng, ví dụ: chức năng Firewal, IPS, VPN, ngoài ra nó còn có một số tính năng của router.
 
-##### Tạo ASA, Alpine 
+Tương tự tạo thêm IOS images
+
+<img src="http://i.imgur.com/kIuFFHk.png">
+
+Check vào ô `This is a legacy ASA VM`
+
+<img src="http://i.imgur.com/o4O722k.png">
 
 Link ASA
 
 https://drive.google.com/file/d/0ByQrVPPzqnowQ3p2ZWxtMEZ1aFk/view?usp=sharing
 
+<a name="VMware"></a>
 ### 7. VMware 
-##### Tạo host XP / CenOS
+##### Tạo host XP, CenOS đã cài trên VMWare Workstation
 
+<img src="http://i.imgur.com/5i3AkEi.png">
+
+Chọn một VM đã cài trên VMWare Workstation
+
+<img src="http://i.imgur.com/JZgH1Jh.png">
+
+<a name="docker"></a>
 ### 8. Docker
 
 Docker - đây là một công cụ tạo môi trường được "đóng gói" (còn gọi là Container) trên máy tính mà không làm tác động tới môi trường hiện tại của máy, môi trường trong Docker sẽ chạy độc lập.
@@ -177,14 +236,15 @@ Docker - đây là một công cụ tạo môi trường được "đóng gói" 
 Một số developer thường tạo sẵn các môi trường này, và upload lên mạng để mọi người lấy về dùng, và mấy cái này gọi là các Images.
 
 
-##### Tạo host Alpine 
+##### Tạo host Alpine  - một distro gọn nhẹ của Linux 
 
-
+<img src="http://i.imgur.com/SZXGVAq.png">
 
 	Image name : alpine:3.2 
 	Start command : sh 
 	Environment : HELLO=WORLD
 
+<a name="topo"></a>
 ### 9. Tạo 1 topo đơn giản
 
 ##### Idle-PC
@@ -200,18 +260,90 @@ Giá trị Idle-PC là riêng với mỗi image. Chúng có thể khác nhau v�
 
 Tuy nhiên nó lại không phụ thuộc máy, hệ điều hành hay phiên bản Dynamips.
 
+Cách thực hiện : 
+
+Chuột phải vào `Router` (running) chọn `IDLE PC` và chọn giá trị thích hợp.
+
 ##### Tạo 1 topo mạng 
 - Bật GNS3
 - Kéo 3 router (c3725) ra Workspace 
 - Thêm cho các Router : NM-4T card 
 - Nối dây
 
+<img src="http://i.imgur.com/nrlOihr.png">
+
 ##### Cấu hình 
 - 3 đường mạng sẽ là 192.168.1.0/24, 192.168.2.0/24 and 192.168.3.0/24
 - Sử dụng định tuyến RIP
 
+Router 1:
+
+	R1>en
+	R1#conf t
+	R1(config)#int f0/0
+	R1(config-if)#ip add 192.168.1.1 255.255.255.0
+	R1(config-if)#no sh
+	R1(config-if)#int f0/1
+	R1(config-if)#ip add 192.168.3.1 255.255.255.0
+	R1(config-if)#no shut
+	R1(config-if)#exit
+	R1(config)#router rip
+	R1(config-router)no auto-summary
+	R1(config-router)version 2
+	R1(config-router)network 192.168.1.0
+	R1(config-router)network 192.168.3.0
+	R1(config-router)exit
+	R1(config)#exit
 
 
+Router 2:
+
+	R2>en
+	R2#conf t
+	R2(config)#int f0/0
+	R2(config-if)#ip add 192.168.1.2 255.255.255.0
+	R2(config-if)#no sh
+	R2(config-if)#int f1/0
+	R2(config-if)#ip add 192.168.2.2 255.255.255.0
+	R2(config-if)#no sh
+	R2(config-if)#exit
+	R2(config)#router rip
+	R2(config-router)no auto-summary
+	R2(config-router)version 2
+	R2(config-router)#net 192.168.1.0
+	R2(config-router)#net 192.168.2.0
+	R2(config-router)#exit
+	R2(config t)exit
+
+Router 3:
+
+	R3>en
+	R3#conf t
+	R3(config)#int f0/1
+	R3(config-if)#ip add 192.168.3.2 255.255.255.0
+	R3(config-if)#no sh
+	R3(config-if)#int f1/0
+	R3(config-if)#ip add 192.168.2.1 255.255.255.0
+	R3(config-if)#no sh
+	R3(config-if)#exit
+	R3(config)#router rip
+	R2(config-router)no auto-summary
+	R2(config-router)version 2
+	R3(config-router)#net 192.168.2.0
+	R3(config-router)#net 192.168.3.0
+	R3(config-router)#exit
+	R3(config t)exit
+
+
+##### Capture gói tin 
+
+Chuột phải vào `Router` (running) chọn `IDLE PC` và chọn port cần bắt. Chương trình sẽ khởi động `Wireshark` để bắt gói tin. 
+
+
+
+
+
+**Hòm thư góp ý : locvx1234@gmail.com **
 
 
 
